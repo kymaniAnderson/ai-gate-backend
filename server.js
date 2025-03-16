@@ -8,6 +8,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const residentRoutes = require('./routes/residentRoutes');
 const securityRoutes = require('./routes/securityRoutes');
 const visitorRoutes = require('./routes/visitorRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,6 +25,8 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/resident', residentRoutes);
 app.use('/api/security', securityRoutes);
 app.use('/api/visitor', visitorRoutes);
+app.use('/api/auth', authRoutes);
+
 
 // Global Error Handler
 app.use((err, req, res, next) => {
