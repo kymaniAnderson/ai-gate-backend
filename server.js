@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const connectDB = require('./config/db'); // Database connection
 
 // Import route files
 const adminRoutes = require('./routes/adminRoutes');
@@ -13,13 +13,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(express.json());
-app.use(cors());
+app.use(express.json()); // Enable JSON body parsing
+app.use(cors()); // Enable CORS for frontend communication
 
-// Connect to database
+// Connect to MongoDB
 connectDB();
 
-// API Routes
+// ✅ Use routes correctly (MAKE SURE THESE ARE NOT UNDEFINED)
 app.use('/api/admin', adminRoutes);
 app.use('/api/resident', residentRoutes);
 app.use('/api/security', securityRoutes);
